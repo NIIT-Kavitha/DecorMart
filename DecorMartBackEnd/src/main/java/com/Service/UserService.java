@@ -1,11 +1,13 @@
-package com.Dao;
+package com.Service;
 
 import java.util.List;
 
 import com.Model.User;
 
-public interface UserDao {
+public interface UserService {
+
+	
+	public List<User> getAllUsers();
 
 	public void addUser(User user);
-	public List<User> getAllUsers();
 }

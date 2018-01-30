@@ -2,10 +2,23 @@ package com.Model;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.stereotype.Component;
+
+@Component
+@Entity
+@Table(name="User")
 public class User implements Serializable {
 	
 	
+	public User() {
+		
+	}
 	private static final long serialVersionUID = 1L;
+	@Id
 	private String email;
 	private String name;
 	private String phoneno;
@@ -13,14 +26,15 @@ public class User implements Serializable {
 	public String password;
 	public String Country;
 	
-	public User(String email, String name, String phoneno, String address, String password,String Country) {
+	
+	/*public User(String email, String name, String phoneno, String address, String password,String Country) {
 		this.email=email;
 		this.name=name;
 		this.phoneno=phoneno;
 		this.address=address;
 		this.password=password;
 		this.Country=Country;
-	}
+	}*/
 	public String getEmail() {
 		return email;
 	}
@@ -57,5 +71,7 @@ public class User implements Serializable {
 	public void setCountry(String country) {
 		Country = country;
 	}
+	
 
 }
+
