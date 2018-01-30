@@ -18,9 +18,5 @@ public String login()
 	return "Login";
 }
 
-@RequestMapping("/signup")
-public String signup()
-{
-	return "Signup";
 }
-}
+

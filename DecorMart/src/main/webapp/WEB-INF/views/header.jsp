@@ -14,9 +14,9 @@
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header">
+    <!-- <div class="navbar-header">
       <a class="navbar-brand" href="#">DecorMart</a>
-    </div>
+    </div> -->
     <ul class="nav navbar-nav">
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navid"/>
 
@@ -28,7 +28,7 @@
 
 <div class="collapse navbar-collapse" id="navid">
 	<ul class="nav navbar-nav">
-      <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+      <li class="active"><a href="<c:url value="/" ></c:url>"><span class="glyphicon glyphicon-home"></span>Home</a></li>
       
  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
         <ul class="dropdown-menu">

@@ -1,66 +1,105 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
-<style>
-form {
-    border: 3px solid #f1f1f1;
-}
-
-
-input[type=text], input[type=password] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 10px;
-    margin: 15px 0;
-    border: none;
-    cursor: pointer;
-    width: 25%;
-}
-.imgcontainer {
-    text-align: center;
-    margin: 20px 0 12px 0;
-}
-
-.container {
-    padding: 16px;
-}
-
-</style>
 </head>
 <body>
-<h2>Signup Form</h2>
+  <div class="container">
 
-<form>
+    <form class="well form-horizontal" action="InserUser" method="post"  id="contact_form">
+<fieldset>
+<center>
 <div class="imgcontainer">
     <img src="images/signimg.jpg" alt="SignUp" class="img-circle">
-  <div class="container">
-    <label><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required><br>
 
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required><br>
+<legend><center><h2><b>SIGN UP</b></h2></center></legend><br>
+  
 
-    <label><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required><br>
-    
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p><br>
-<button type="submit">Sign Up</button>
-    
+<!-- <center> -->
+<div class="form-group">
+  <label class="col-md-4 control-label">Username</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  
+  <input  name="username" placeholder="Username" class="form-control"  type="text">
+    </div>
   </div>
 </div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Password</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  
+  <input name="password" placeholder="Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+
+
+<div class="form-group">
+  <label class="col-md-4 control-label" >Confirm Password</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  
+  <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
+    </div>
+  </div>
+</div>
+
+
+       <div class="form-group">
+  <label class="col-md-4 control-label">E-Mail</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+        
+  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+       
+<div class="form-group">
+  <label class="col-md-4 control-label">Contact No.</label>  
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+       
+  <input name="contact_no" placeholder="mobile number" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Country</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  
+<input name="country" placeholder="Country name" class="form-control"  type="text">
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label"></label>
+  <div class="col-md-4"><br>
+    <button type="submit" class="btn btn-primary" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSUBMIT &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+  </div>
+</div>
+</div>
+</center>
+</fieldset>
 </form>
+</div>
+   
+<!-- </center> -->
 </body>
 </html>

@@ -47,13 +47,14 @@ button:hover {
 </style>
 </head>
 <body>
-<h2>Login</h2>
+
 
 <form>
   <div class="imgcontainer">
     <img src="images/logimg.jpg" alt="Login" class="img-circle">
 
   <div class="container">
+<center><legend><h2><b>LOGIN</b></h2></legend><br></center>
     <label><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="uname" required><br>
 
