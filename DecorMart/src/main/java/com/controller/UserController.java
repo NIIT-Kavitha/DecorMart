@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.Model.User;
 import com.Service.UserService;
@@ -19,21 +20,35 @@ public class UserController {
 	@Autowired
 	private UserService userService;
  
-	@RequestMapping("/signup")
-	public String getRegistrationForm(Model model)
+	@RequestMapping("/")
+	public ModelAndView index()
 	{
-		model.addAttribute("user", new User());
+		ModelAndView m=new ModelAndView();
+		m.addObject("user",new User());
+		m.setViewName("index");
+		return m;
+	}
+
+	@RequestMapping("/login")
+	public String login()
+	{
+		return "Login";
+	}
+	@RequestMapping("/signup")
+	public String getRegistrationForm()
+	{
+		//model.addAttribute("user", new User());
 		return "Signup";
 	}
 
-	@RequestMapping(value="InserUser" ,method=RequestMethod.POST)
+	@RequestMapping(value="/InserUser" ,method=RequestMethod.POST)
 	public String insertUser(@ModelAttribute("user") User user, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
 			return "Signup";
 		List<User> users=userService.getAllUsers();
 		String email=user.getEmail();
-	
+	System.out.println("Username: "+user.getName());
 		for(User c:users)
 		{
 			if(c.getEmail().equals(email))

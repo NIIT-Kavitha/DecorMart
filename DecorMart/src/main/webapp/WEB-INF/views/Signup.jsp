@@ -14,22 +14,20 @@
 <body>
   <div class="container">
 
-    <form class="well form-horizontal" action="InserUser" method="post"  id="contact_form">
+    <form:form class="well form-horizontal" action="InserUser" method="post" modelattribute="user">
 <fieldset>
 <center>
 <div class="imgcontainer">
     <img src="images/signimg.jpg" alt="SignUp" class="img-circle">
 
 <legend><center><h2><b>SIGN UP</b></h2></center></legend><br>
-  
 
-<!-- <center> -->
 <div class="form-group">
   <label class="col-md-4 control-label">Username</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   
-  <input  name="username" placeholder="Username" class="form-control"  type="text">
+  <form:input  path="name" placeholder="Username" class="form-control"  type="text"/>
     </div>
   </div>
 </div>
@@ -41,40 +39,27 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   
-  <input name="password" placeholder="Password" class="form-control"  type="password">
+  <form:input path="password" placeholder="Password" class="form-control"  type="password"/>
     </div>
   </div>
 </div>
-
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" >Confirm Password</label> 
-    <div class="col-md-4 inputGroupContainer">
-    <div class="input-group">
-  
-  <input name="confirm_password" placeholder="Confirm Password" class="form-control"  type="password">
-    </div>
-  </div>
-</div>
-
 
        <div class="form-group">
   <label class="col-md-4 control-label">E-Mail</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
         
-  <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+  <form:input path="email" placeholder="E-Mail Address" class="form-control"  type="text"/>
     </div>
   </div>
 </div>
        
 <div class="form-group">
-  <label class="col-md-4 control-label">Contact No.</label>  
+  <label class="col-md-4 control-label">Phone No.</label>  
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
        
-  <input name="contact_no" placeholder="mobile number" class="form-control" type="text">
+  <form:input path="phoneno" placeholder="mobile number" class="form-control" type="text"/>
     </div>
   </div>
 </div>
@@ -83,7 +68,7 @@
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   
-<input name="country" placeholder="Country name" class="form-control"  type="text">
+<form:input path="Country" placeholder="Country name" class="form-control"  type="text"/>
     </div>
   </div>
 </div>
@@ -97,7 +82,7 @@
 </div>
 </center>
 </fieldset>
-</form>
+</form:form>
 </div>
    
 <!-- </center> -->

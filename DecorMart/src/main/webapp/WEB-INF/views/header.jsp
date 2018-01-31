@@ -14,9 +14,7 @@
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <!-- <div class="navbar-header">
-      <a class="navbar-brand" href="#">DecorMart</a>
-    </div> -->
+    
     <ul class="nav navbar-nav">
 	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navid"/>
 
@@ -37,7 +35,7 @@
           
         </ul>
       </li>
-
+	<li><a href="<c:url value="/adminadd" ></c:url>">Admin Add Page</a></li>
     </ul>
 <ul class="nav navbar-nav navbar-right">
       <li><a href="<c:url value="/signup" ></c:url>"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
