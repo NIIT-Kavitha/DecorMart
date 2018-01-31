@@ -13,8 +13,13 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.Dao.SupplierDao;
 import com.Dao.UserDao;
+import com.DaoImpl.SupplierDaoImpl;
 import com.DaoImpl.UserDaoImpl;
+import com.Model.Category;
+import com.Model.Supplier;
+import com.Model.User;
 
 
 @Configuration
@@ -26,11 +31,11 @@ public class HibernateConfig
     @Bean(name="sessionFactory")
     public SessionFactory getSessionFactory() {
         LocalSessionFactoryBuilder localSessionFactoryBuilder = new LocalSessionFactoryBuilder(getH2Database());
-        /*localSessionFactoryBuilder.addAnnotatedClass(User.class);
-        localSessionFactoryBuilder.addAnnotatedClass(Supplier.class);*/
-       
+        localSessionFactoryBuilder.addAnnotatedClass(User.class);
+        localSessionFactoryBuilder.addAnnotatedClass(Supplier.class);
+        localSessionFactoryBuilder.addAnnotatedClass(Category.class);
         
-        localSessionFactoryBuilder.scanPackages("com.Model");
+        //localSessionFactoryBuilder.scanPackages("com.Model");
         localSessionFactoryBuilder.addProperties(getHibernateProperties());
         SessionFactory sessionFactory=localSessionFactoryBuilder.buildSessionFactory();
         return sessionFactory;
@@ -73,4 +78,10 @@ public class HibernateConfig
 		return new UserDaoImpl(s);
     	
     }
+   @Autowired
+   @Bean(name= "supplierDao")
+   public SupplierDao getSupplierDao(SessionFactory s){
+	   
+	   return new SupplierDaoImpl(s);
+   }
 }
