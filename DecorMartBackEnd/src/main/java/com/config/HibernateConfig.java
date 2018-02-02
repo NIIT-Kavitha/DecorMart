@@ -13,11 +13,16 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.Dao.CategoryDao;
+import com.Dao.ProductDao;
 import com.Dao.SupplierDao;
 import com.Dao.UserDao;
+import com.DaoImpl.CategoryDaoImpl;
+import com.DaoImpl.ProductDaoImpl;
 import com.DaoImpl.SupplierDaoImpl;
 import com.DaoImpl.UserDaoImpl;
 import com.Model.Category;
+import com.Model.Product;
 import com.Model.Supplier;
 import com.Model.User;
 
@@ -34,6 +39,7 @@ public class HibernateConfig
         localSessionFactoryBuilder.addAnnotatedClass(User.class);
         localSessionFactoryBuilder.addAnnotatedClass(Supplier.class);
         localSessionFactoryBuilder.addAnnotatedClass(Category.class);
+        localSessionFactoryBuilder.addAnnotatedClass(Product.class);
         
         //localSessionFactoryBuilder.scanPackages("com.Model");
         localSessionFactoryBuilder.addProperties(getHibernateProperties());
@@ -83,5 +89,17 @@ public class HibernateConfig
    public SupplierDao getSupplierDao(SessionFactory s){
 	   
 	   return new SupplierDaoImpl(s);
+   }
+   
+   @Autowired
+   @Bean(name="categoryDao")
+   public CategoryDao getCategoryDao(SessionFactory s){
+	   return new CategoryDaoImpl(s);
+   }
+   
+   @Autowired
+   @Bean(name="productDao")
+   public ProductDao getProductDao(SessionFactory s){
+	   return new ProductDaoImpl(s);
    }
 }

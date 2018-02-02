@@ -8,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.Dao.CategoryDao;
+import com.Dao.ProductDao;
 import com.Model.Category;
+import com.Model.Product;
 
 @Repository
 @Transactional
-public class CategoryDaoImpl implements CategoryDao {
-	
+public class ProductDaoImpl implements ProductDao {
+	 
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -26,22 +27,22 @@ public class CategoryDaoImpl implements CategoryDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public CategoryDaoImpl(SessionFactory s){
+	public ProductDaoImpl(SessionFactory s){
 		sessionFactory=s;
 	}
-
-	public void insertCategory(Category category) {
+	public void insertProduct(Product product) {
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
-		session.saveOrUpdate(category);
+		session.saveOrUpdate(product);
 		session.getTransaction().commit();
-
+		
 	}
 
-	public List<Category> getAllCategories() {
+	public List<Product> getAllProducts() {
 		Session session = sessionFactory.getCurrentSession();
-        List<Category> CategoryList = session.createQuery("from Category").list();
-		return CategoryList;
+        List<Product> ProductList = session.createQuery("from product").list();
+		return ProductList;
+		
 	}
 
 }

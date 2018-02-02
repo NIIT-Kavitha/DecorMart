@@ -36,7 +36,9 @@ public void setSessionFactory(SessionFactory sessionFactory) {
 		System.out.println("Test");
 
 		session.beginTransaction();
-        session.saveOrUpdate(user);        
+        session.saveOrUpdate(user);  
+        session.getTransaction().commit();
+	}
         /*User users = new User();      
 
         users.setName(users.getName());
@@ -45,10 +47,17 @@ public void setSessionFactory(SessionFactory sessionFactory) {
         users.setPhoneno(users.getPhoneno());
         users.setCountry(users.getCountry());
         
-    	session.saveOrUpdate(users);
+    	session.saveOrUpdate(users);*/
+	
+    	/*
+    	User users = new User();      
+
+        users.setUsername(user.getName());
+        users.setPassword(user.getPassword());
+        users.setEnabled(true);
+
 */
-	session.getTransaction().commit();
-}
+	
 
 	/*private SessionFactory sessionFactory;
 	

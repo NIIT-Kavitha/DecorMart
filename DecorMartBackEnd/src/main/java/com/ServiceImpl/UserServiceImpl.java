@@ -27,10 +27,10 @@ public class UserServiceImpl implements UserService {
 				userDao.addUser(user);
 			}
 
-			List<User> user;
+			
 			public List<User> getAllUsers() {
 				
-				return user;
+				return userDao.getAllUsers();
 			}
 
 }

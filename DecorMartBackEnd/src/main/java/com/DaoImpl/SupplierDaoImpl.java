@@ -1,5 +1,7 @@
 package com.DaoImpl;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +36,10 @@ public void setSessionFactory(SessionFactory sessionFactory) {
         session.saveOrUpdate(supplier);        
 	    session.getTransaction().commit();
 }
+
+	public List<Supplier> getAllSuppliers() {
+		Session session = sessionFactory.getCurrentSession();
+        List<Supplier> SupplierList = session.createQuery("from Supplier").list();
+		return SupplierList;
+	}
 }

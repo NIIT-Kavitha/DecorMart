@@ -1,5 +1,7 @@
 package com.ServiceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
 	public void insertCategory(Category category) {
 		
 		categoryDao.insertCategory(category);
+	}
+	public List<Category> getAllCategories() {
+		return categoryDao.getAllCategories();
 	}
 
 }
