@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -120,7 +122,7 @@ document.getElementById("defaultOpen").click();
 					<th>Price</th>
 					<th>Unit in Stock</th>
 				</tr>
-			</thead>
+			</thead>			
             </table>
 </div>
 
@@ -133,6 +135,24 @@ document.getElementById("defaultOpen").click();
     <th>Category Name</th>
     </tr>
     </thead>
+    	<%-- <c:forEach var="category" items="${categoryList}">
+			    <tr>
+				<td>${category.id}</td>
+				<td>${category.name}</td>
+				<td>
+				  <spring:url value="/update/${category.catId}" var="update" />
+				  <spring:url value="/delete/${category.catId}" var="delete" />
+				  
+				
+				  <button class="btn btn-primary"
+                          onclick="location.href='${update}'">Update</button>
+				  <button class="btn btn-danger"
+                          onclick="location.href='${delete}'">Delete</button>
+                                </td>
+     
+    
+    </tr>
+    </c:forEach> --%>
     </table>
 </div>
 

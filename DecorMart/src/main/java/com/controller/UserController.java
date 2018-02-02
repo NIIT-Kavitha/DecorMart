@@ -35,20 +35,24 @@ public class UserController {
 		return "Login";
 	}
 	@RequestMapping("/signup")
-	public String getRegistrationForm()
+	public String getRegistrationForm(Model model)
 	{
-		//model.addAttribute("user", new User());
+		model.addAttribute("user", new User());
 		return "Signup";
 	}
 
-	@RequestMapping(value="/InserUser" ,method=RequestMethod.POST)
+	@RequestMapping(value="/insertUser" ,method=RequestMethod.POST)
 	public String insertUser(@ModelAttribute("user") User user, BindingResult result, Model model)
 	{
 		if(result.hasErrors())
 			return "Signup";
+		
+		
 		List<User> users=userService.getAllUsers();
+		
 		String email=user.getEmail();
 	System.out.println("Username: "+user.getName());
+	System.out.println("E-Mail: "+user.getEmail());
 		for(User c:users)
 		{
 			if(c.getEmail().equals(email))

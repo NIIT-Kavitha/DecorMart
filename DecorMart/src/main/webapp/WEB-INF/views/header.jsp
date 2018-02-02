@@ -35,7 +35,8 @@
           
         </ul>
       </li>
-	<li><a href="<c:url value="/adminadd" ></c:url>">Admin Add Page</a></li>
+	<li><a href="<c:url value="/adminview" ></c:url>">Admin Add Page</a></li>
+	<li><a href="<c:url value="/adminadd" ></c:url>">Admin Add Form</a></li>
     </ul>
 <ul class="nav navbar-nav navbar-right">
       <li><a href="<c:url value="/signup" ></c:url>"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>

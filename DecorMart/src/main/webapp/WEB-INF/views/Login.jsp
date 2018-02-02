@@ -62,7 +62,7 @@ button:hover {
     <input type="password" placeholder="Enter Password" name="psw" required><br>
         
     
-    <input type="checkbox" checked="checked"> Remember me
+
     <br><button type="submit">Login</button>
   </div>
   </div>

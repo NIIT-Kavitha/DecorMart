@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,8 +14,8 @@
 </head>
 <body>
   <div class="container">
-
-    <form:form class="well form-horizontal" action="InserUser" method="post" modelattribute="user">
+  <c:url var="addAction" value="/insertUser" ></c:url>
+<form:form class="well form-horizontal" action="${addAction}" method="post" modelAttribute="user" >
 <fieldset>
 <center>
 <div class="imgcontainer">
@@ -23,7 +24,7 @@
 <legend><center><h2><b>SIGN UP</b></h2></center></legend><br>
 
 <div class="form-group">
-  <label class="col-md-4 control-label">Username</label>  
+  <label class="col-md-4 control-label">UserName</label>  
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   
@@ -60,6 +61,15 @@
     <div class="input-group">
        
   <form:input path="phoneno" placeholder="mobile number" class="form-control" type="text"/>
+    </div>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-md-4 control-label" >Address</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  
+<form:input path="address" placeholder="Address" class="form-control"  type="text"/>
     </div>
   </div>
 </div>

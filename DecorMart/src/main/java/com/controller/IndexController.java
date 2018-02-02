@@ -6,11 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-@RequestMapping("/adminadd")
-public String adminadd()
+@RequestMapping("/adminview")
+public String adminview()
 {
 	return "AdminAddPage";
 }
 
+@RequestMapping("/adminadd")
+public String adminadd()
+{
+	return "AdminAddForm";
+}
 }
 
