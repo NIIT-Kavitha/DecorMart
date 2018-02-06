@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 @Component
 @Entity
@@ -22,6 +21,7 @@ public class Product {
 	private String pdesc;
 	private Float price;
 	private Integer stock;
+	
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="catId")
@@ -85,7 +85,6 @@ public class Product {
 	}
 	public void setProductImage(String productImage) {
 		this.productImage = productImage;
-	}
-
+	}	
 	
 }
