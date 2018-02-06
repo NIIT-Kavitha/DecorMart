@@ -139,13 +139,27 @@ document.getElementById("defaultOpen").click();
                    <!-- <input type="text" class="form-control" placeholder="Select Category"> -->
                    Select Category
                    <select class="form-control" name="pcategory"> 
-                       <option value="">-----Category------</option>
-                       		<%-- <c:foreach items="${CategoryList}" var="category">
-                       		<option value="${category.catId }">${category.catName}</option>
-                       </c:foreach> --%>
+                       <option value="">-----CATEGORY------</option>
+                       		 <c:forEach items="${CategoryList}" var="pcategory">
+                       		<option value="${pcategory.catId }">${pcategory.catName}</option>
+                       </c:forEach> 
                    </select>
                   </div>
                   
+                  <div class="form-group">
+                   <!-- <input type="text" class="form-control" placeholder="Select Category"> -->
+                   Select Supplier
+                   <select class="form-control" name="pcategory"> 
+                       <option value="">-----SUPPLIER------</option>
+                       		 <c:forEach items="${SupplierList}" var="psupplier">
+                       		<option value="${psupplier.supId }">${psupplier.supName}</option>
+                       </c:forEach> 
+                   </select>
+                  </div>
+                  
+                  <div class="form-group">
+                  Product Image: <input type="file" name="file"/>
+                  </div>
                   
                   <div class="form-group">
                     <input type="submit" class="btn btn-success btn-block"  value="SUBMIT">

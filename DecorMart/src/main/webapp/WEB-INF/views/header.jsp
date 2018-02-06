@@ -10,6 +10,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+
+<%        
+    response.setHeader("Pragma", "No-cache");
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setDateHeader("Expires",0 );
+    
+%>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -24,10 +32,24 @@
 	</button>
 </ul>
 
+<form action="logout" method="post" id="logoutForm">
+            <input type="hidden"
+                    name="${_csrf.parameterName}"
+                    value="${_csrf.token}" />
+</form>
+
+<script>
+    function formSubmit() {
+                document.getElementById("logoutForm").submit();
+    }
+</script>
 <div class="collapse navbar-collapse" id="navid">
 	<ul class="nav navbar-nav">
+	<c:if test="${pageContext.request.userPrincipal.name==null}">
       <li class="active"><a href="<c:url value="/" ></c:url>"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-      
+      </c:if>
+      <c:if test="${pageContext.request.userPrincipal.name!=null}" >
+      <c:if test="${pageContext.request.userPrincipal.name  != 'admin'}">
  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Categories <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="#">Stickers</a></li>
@@ -35,13 +57,22 @@
           
         </ul>
       </li>
-	<li><a href="<c:url value="/adminview" ></c:url>">Admin Add Page</a></li>
+      </c:if>
+      <c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
+      <li><a href="<c:url value="/adminview" ></c:url>">Admin Add Page</a></li>
 	<li><a href="<c:url value="/adminadd" ></c:url>">Admin Add Form</a></li>
-    </ul>
+	</c:if>
+			 <li><a href="javascript:formSubmit()">Logout</a></li>
+
+		</c:if >
+   </ul>
+    <c:if test="${pageContext.request.userPrincipal.name==null}">
+    
 <ul class="nav navbar-nav navbar-right">
       <li><a href="<c:url value="/signup" ></c:url>"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
       <li><a href="<c:url value="/login" ></c:url>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
+    </c:if>
   </div>
 </div>
 </nav>

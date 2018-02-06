@@ -2,13 +2,17 @@ package com.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.Model.User;
@@ -29,11 +33,29 @@ public class UserController {
 		return m;
 	}
 
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String login()
 	{
 		return "Login";
-	}
+	}*/
+	
+	@RequestMapping("/login")
+    public String login(@RequestParam(value="error",required=false) String error,
+    		@RequestParam(value="logout",required=false) String logout, Model model){
+    		if(error!=null)
+    	model.addAttribute("error","Invalid username and password");
+    	
+    	if(logout!=null)
+    		model.addAttribute("logout","You have logged out successfully");
+    	return "Login";
+    }
+
+   @RequestMapping("/logout")
+   public String logout()
+   {
+	   return "redirect:/";
+   }
+   
 	@RequestMapping("/signup")
 	public String getRegistrationForm(Model model)
 	{
@@ -42,8 +64,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value="/insertUser" ,method=RequestMethod.POST)
-	public String insertUser(@ModelAttribute("user") User user, BindingResult result, Model model)
+	public String insertUser(@Valid @ModelAttribute("user") User user, BindingResult result, Model model)
 	{
+		user.setRole("ROLE_USER");
+		user.setEnabled(false);
 		if(result.hasErrors())
 			return "Signup";
 		

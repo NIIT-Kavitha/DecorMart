@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,19 +48,30 @@ button:hover {
 </style>
 </head>
 <body>
+<c:if test="${registrationSuccess !=null}">
+${registrationSuccess }
+</c:if>
 
+<c:if test="${not empty logout}">
+                <div class="error" style="color: #ff0000;">${logout}</div>
+            </c:if>
+           
 
-<form>
+<form name='loginForm' action="" method='POST'>
+                <c:if test="${not empty error}">
+                    <div class="error" style="color: #ff0000;">${error}</div>
+                </c:if>
+
   <div class="imgcontainer">
     <img src="images/logimg.jpg" alt="Login" class="img-circle">
 
   <div class="container">
 <center><legend><h2><b>LOGIN</b></h2></legend><br></center>
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required><br>
+    <input type="text" placeholder="Enter Username" name="j_username" required><br>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required><br>
+    <input type="password" placeholder="Enter Password" name="j_password" required><br>
         
     
 

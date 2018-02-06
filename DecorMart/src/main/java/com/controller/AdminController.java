@@ -77,7 +77,7 @@ public String saveProduct(HttpServletRequest request,@RequestParam("file")Multip
 	catch(Exception e){
 		System.out.println(e.getMessage());
 	}
-	return "index";
+	return "AdminAddForm";
 }
 
 }
