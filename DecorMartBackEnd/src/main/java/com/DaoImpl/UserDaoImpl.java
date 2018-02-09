@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,4 +74,14 @@ public void setSessionFactory(SessionFactory sessionFactory) {
 		return UserList;
 	}
 
+	
+	public User getUserByUsername(String name) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("from User where name = ?");
+        query.setString(0, name);
+
+        return (User) query.uniqueResult();
+		
+		/*return sessionFactory.getCurrentSession().get(User.class, name);*/
+	}
 }

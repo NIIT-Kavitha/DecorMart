@@ -1,5 +1,9 @@
 G:\Workspace\DecorMartBackEnd\src\main\java\com\Dao\UserDao.java
+G:\Workspace\DecorMartBackEnd\src\main\java\com\Service\ProductService.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\ServiceImpl\UserServiceImpl.java
+G:\Workspace\DecorMartBackEnd\src\main\java\com\ServiceImpl\ProductServiceImpl.java
+G:\Workspace\DecorMartBackEnd\src\main\java\com\Model\Product.java
+G:\Workspace\DecorMartBackEnd\src\main\java\com\Dao\ProductDao.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\Service\CategoryService.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\DaoImpl\UserDaoImpl.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\Dao\SupplierDao.java
@@ -7,6 +11,7 @@ G:\Workspace\DecorMartBackEnd\src\main\java\com\Dao\CategoryDao.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\Model\User.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\DecorMartBackEnd\App.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\DaoImpl\CategoryDaoImpl.java
+G:\Workspace\DecorMartBackEnd\src\main\java\com\DaoImpl\ProductDaoImpl.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\DaoImpl\SupplierDaoImpl.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\Service\SupplierService.java
 G:\Workspace\DecorMartBackEnd\src\main\java\com\Model\Category.java
