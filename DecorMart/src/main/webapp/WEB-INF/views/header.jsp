@@ -11,12 +11,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 
-<%        
+<%-- <%        
     response.setHeader("Pragma", "No-cache");
     response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
     response.setDateHeader("Expires",0 );
     
-%>
+%> --%>
 
 </head>
 <body>
@@ -58,6 +58,7 @@
         </ul>
       </li>
       </c:if>
+      <li><a>Welcome ${pageContext.request.userPrincipal.name }</a></li>
       <c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
       <li><a href="<c:url value="/adminview" ></c:url>">Admin Add Page</a></li>
 	<li><a href="<c:url value="/adminadd" ></c:url>">Admin Add Form</a></li>
@@ -66,13 +67,15 @@
 
 		</c:if >
    </ul>
-    <c:if test="${pageContext.request.userPrincipal.name==null}">
+    
     
 <ul class="nav navbar-nav navbar-right">
+<c:if test="${pageContext.request.userPrincipal.name==null}">
       <li><a href="<c:url value="/signup" ></c:url>"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
       <li><a href="<c:url value="/login" ></c:url>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
     </c:if>
+    </ul>
+    
   </div>
 </div>
 </nav>

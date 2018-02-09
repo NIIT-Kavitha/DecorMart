@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -32,18 +31,24 @@ public class UserController {
 		m.setViewName("index");
 		return m;
 	}
+	@RequestMapping("/login")
+	public String getLoginForm(Model model)
+	{
+		model.addAttribute("user", new User());
+		return "Login";
+	}
 
 	/*@RequestMapping("/login")
 	public String login()
 	{
 		return "Login";
-	}*/
-	
-	@RequestMapping("/login")
+	}
+	*/
+	@RequestMapping(value="/log" ,method=RequestMethod.POST)
     public String login(@RequestParam(value="error",required=false) String error,
     		@RequestParam(value="logout",required=false) String logout, Model model){
     		if(error!=null)
-    	model.addAttribute("error","Invalid username and password");
+    	model.addAttribute("error","Invalid email and password");
     	
     	if(logout!=null)
     		model.addAttribute("logout","You have logged out successfully");
@@ -56,6 +61,16 @@ public class UserController {
 	   return "redirect:/";
    }
    
+   @RequestMapping("/userLog")
+   public String success(){
+	   System.out.println("User Logged");
+	   return "redirect:/";
+   }
+   
+  /* @RequestMapping("/accessDenied")
+   public String failure(){
+	   return "accessDenied";
+   }*/
 	@RequestMapping("/signup")
 	public String getRegistrationForm(Model model)
 	{
@@ -90,23 +105,4 @@ public class UserController {
 		userService.addUser(user);
 		return "redirect:/login";
 	}
-
-    /*@RequestMapping(value = "/signup", method = RequestMethod.GET)
-    public ModelAndView newUser(ModelAndView model) {
-        User user = new User();
-        model.addObject("user", user);
-        model.setViewName("Signup");
-        return model;
-    }
- 
-    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
-    public ModelAndView saveEmployee(@ModelAttribute User user) {
-        if (user.getEmail() == null) { // if employee id is 0 then creating the
-            // employee other updating the employee
-            userService.addUser(user);
-        } else {
-            userService.updateUser(user);
-        }
-        return new ModelAndView("redirect:/");
-    }*/
 }

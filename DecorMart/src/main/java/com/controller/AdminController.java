@@ -32,7 +32,7 @@ public class AdminController {
 	@Autowired
 	ProductService productService;
 
-@RequestMapping(value="/savecategory" , method=RequestMethod.POST)
+@RequestMapping(value="/admin/savecategory" , method=RequestMethod.POST)
 public ModelAndView saveCategory(@RequestParam("catId") int catId,@RequestParam("catName") String catName){
 	
 	ModelAndView m=new ModelAndView();
@@ -44,7 +44,7 @@ public ModelAndView saveCategory(@RequestParam("catId") int catId,@RequestParam(
 	return m;
 }
 	
-@RequestMapping(value="/savesupplier" , method=RequestMethod.POST)
+@RequestMapping(value="/admin/savesupplier" , method=RequestMethod.POST)
 public ModelAndView saveSupplier(@RequestParam("supId") int supId,@RequestParam("supName") String supName){
 	
 	ModelAndView m=new ModelAndView();
@@ -56,7 +56,7 @@ public ModelAndView saveSupplier(@RequestParam("supId") int supId,@RequestParam(
 	return m;
 }
 
-@RequestMapping(value="/saveproduct" , method=RequestMethod.POST)
+@RequestMapping(value="/admin/saveproduct" , method=RequestMethod.POST)
 public String saveProduct(HttpServletRequest request,@RequestParam("file")MultipartFile file){
 	Product product=new Product();
 	product.setPname(request.getParameter("pname"));

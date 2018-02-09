@@ -121,7 +121,7 @@ document.getElementById("defaultOpen").click();
               <article role="login">
                 <h3 class="text-center"><i class="fa fa-lock"></i>Product</h3>
                 
-                <c:url var="addProduct" value="/saveproduct" ></c:url>
+                <c:url var="addProduct" value="/admin/saveproduct" ></c:url>
                 <form class="signup" action="${addProduct}" method="post">
                   <div class="form-group">
                     <input type="text" class="form-control" name="pname" placeholder="Product Name">
@@ -177,7 +177,7 @@ document.getElementById("defaultOpen").click();
             <div class="col-sm-12 mobile-pull">
               <article role="login">
                 <h3 class="text-center"><i class="fa fa-lock"></i>Category</h3>
-                <c:url var="addCategory" value="/savecategory" ></c:url>
+                <c:url var="addCategory" value="/admin/savecategory" ></c:url>
                 <form class="signup" action="${addCategory }" method="post">
                   <div class="form-group">
                     <input type="text" class="form-control" name="catId" placeholder="Category Id">
@@ -200,7 +200,7 @@ document.getElementById("defaultOpen").click();
             <div class="col-sm-12 mobile-pull">
               <article role="login">
                 <h3 class="text-center"><i class="fa fa-lock"></i>Supplier</h3>
-                <c:url var="addSupplier" value="/savesupplier" ></c:url>
+                <c:url var="addSupplier" value="/admin/savesupplier" ></c:url>
                 <form class="signup" action="${addSupplier}" method="post">
                   <div class="form-group">
                     <input type="text" class="form-control" name="supId" placeholder="Supplier Id">
