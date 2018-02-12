@@ -84,4 +84,5 @@ public void setSessionFactory(SessionFactory sessionFactory) {
 		
 		/*return sessionFactory.getCurrentSession().get(User.class, name);*/
 	}
+	
 }
