@@ -28,39 +28,53 @@ ${registrationSuccess }
 						<c:if test="${not empty logout}">
 							<div class="error" style="color: #ff0000;">${logout}</div>
 						</c:if>
-					<%-- 	<c:url var="filtering" value="logincheck" ></c:url>
+						<%-- 	<c:url var="filtering" value="logincheck" ></c:url>
             <form name='loginForm' action="<c:url value="${filtering}"></c:url>" method='POST'>  --%>
 
-						<form name='loginForm' action="<c:url value='/log' />"
-							method='POST'>
+						<%-- <form name='loginForm' action="<c:url value='/login' />"
+							method='GET'> --%>
 
+						<form class="form-group"
+							action="<c:url value="j_spring_security_check"></c:url>"
+							method="post">
 							<c:if test="${not empty error}">
 								<div class="error" style="color: #ff0000;">${error}</div>
 							</c:if>
 
 							<div class="form-group">
 								<label for="email">E-mail: </label> <input type="text"
-									id="email" name="email" class="form-control" required />
+									id="email" name="j_username" class="form-control" required />
 							</div>
 							<div class="form-group">
 								<label for="password">Password:</label> <input type="password"
-									id="password" name="password" class="form-control" required />
+									id="password" name="j_password" class="form-control" required />
 							</div>
-							<input type="hidden" name="${_csrf.parameterName}"
-								value="${_csrf.token}" />
+
 							<center>
 								<input type="submit" value="Login" class="btn btn-primary">
-								<%String email=request.getParameter("email");
-								System.out.println("user: "+email);%>
+								<%
+									String email = request.getParameter("email");
+									System.out.println("user: " + email);
+								%>
 							</center>
+
 							<br>
 						</form>
+						<input type="hidden" name="${_csrf.parameterName}"
+							value="${_csrf.token}" />
 					</div>
 				</div>
 
 			</div>
-			<br><br><br><br><br><br><br><br>
-			
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
 		</div>
 	</div>
 	<%@ include file="footer.jsp"%>

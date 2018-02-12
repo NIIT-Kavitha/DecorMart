@@ -31,12 +31,12 @@ public class UserController {
 		m.setViewName("index");
 		return m;
 	}
-	@RequestMapping("/login")
+	/*@RequestMapping("/login")
 	public String getLoginForm(Model model)
 	{
 		model.addAttribute("user", new User());
 		return "Login";
-	}
+	}*/
 
 	/*@RequestMapping("/login")
 	public String login()
@@ -44,7 +44,7 @@ public class UserController {
 		return "Login";
 	}
 	*/
-	@RequestMapping(value="/log" ,method=RequestMethod.POST)
+	@RequestMapping("/login")
     public String login(@RequestParam(value="error",required=false) String error,
     		@RequestParam(value="logout",required=false) String logout, Model model){
     		if(error!=null)
