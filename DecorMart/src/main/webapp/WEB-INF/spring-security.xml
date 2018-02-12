@@ -13,60 +13,45 @@
         http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-<security:http auto-config="true">
-   <security:csrf disabled="true"/>
-    <security:intercept-url pattern="/login" access="permitAll"/>
-   
-    <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-  
-    
-   <security:form-login login-page="/login" 
-    
-     login-processing-url="/j_spring_security_check" 
-     default-target-url="/" 
-      authentication-failure-url="/login?error" 
-     username-parameter="j_username" 
-     password-parameter="j_password"/>
-    
-     <security:logout logout-success-url="/login?logout" 
-     logout-url="/j_spring_security_logout"/>
-    </security:http>
-    <security:authentication-manager>
-    <security:authentication-provider>
-     
-    <security:jdbc-user-service
-                    data-source-ref="dataSource"
-                    authorities-by-username-query="SELECT email, role FROM user WHERE email = ?"
-                    users-by-username-query="SELECT email, password, enabled FROM user WHERE email = ?" />
-
-    </security:authentication-provider>
-    </security:authentication-manager>
-
-
-
-	<!-- <security:http auto-config="true">
-		<security:intercept-url pattern="/admin/**"
-			access="ROLE_ADMIN" />
-		<security:intercept-url pattern="/login"
+	<security:http auto-config="true">
+		<security:csrf disabled="true" />
+		<security:intercept-url pattern="/login" 
 			access="permitAll" />
+
+		<security:intercept-url pattern="/admin/**"
+			access="hasRole('ROLE_ADMIN')" />
+
+
 		<security:form-login login-page="/login"
 
-			authentication-failure-url="/login?error" username-parameter="username"
-			password-parameter="password" authentication-success-forward-url="/userLog" />
+			login-processing-url="/j_spring_security_check" default-target-url="/"
+			authentication-failure-url="/login?error" username-parameter="j_username"
+			password-parameter="j_password" />
 
-		<security:logout logout-success-url="/" logout-url="/logout" />
-		<security:csrf disabled="true" />
+		<security:logout logout-success-url="/login?logout"
+			logout-url="/j_spring_security_logout" />
 	</security:http>
-
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:password-encoder hash="bcrypt" />
 
 			<security:jdbc-user-service
-				data-source-ref="dataSource" authorities-by-username-query="SELECT email, role FROM user WHERE name= ?"
-				users-by-username-query="SELECT email, password, enabled FROM user WHERE name= ?" />
+				data-source-ref="dataSource" authorities-by-username-query="SELECT email, role FROM user WHERE email = ?"
+				users-by-username-query="SELECT email, password, enabled FROM user WHERE email = ?" />
 
 		</security:authentication-provider>
-	</security:authentication-manager> -->
+	</security:authentication-manager>
+
+
+
+	<!-- <security:http auto-config="true"> <security:intercept-url pattern="/admin/**" 
+		access="ROLE_ADMIN" /> <security:intercept-url pattern="/login" access="permitAll" 
+		/> <security:form-login login-page="/login" authentication-failure-url="/login?error" 
+		username-parameter="username" password-parameter="password" authentication-success-forward-url="/userLog" 
+		/> <security:logout logout-success-url="/" logout-url="/logout" /> <security:csrf 
+		disabled="true" /> </security:http> <security:authentication-manager> <security:authentication-provider> 
+		<security:password-encoder hash="bcrypt" /> <security:jdbc-user-service data-source-ref="dataSource" 
+		authorities-by-username-query="SELECT email, role FROM user WHERE name= ?" 
+		users-by-username-query="SELECT email, password, enabled FROM user WHERE 
+		name= ?" /> </security:authentication-provider> </security:authentication-manager> -->
 
 </beans:beans>
