@@ -21,7 +21,9 @@ import com.DaoImpl.CategoryDaoImpl;
 import com.DaoImpl.ProductDaoImpl;
 import com.DaoImpl.SupplierDaoImpl;
 import com.DaoImpl.UserDaoImpl;
+import com.Model.Cart;
 import com.Model.Category;
+import com.Model.Orders;
 import com.Model.Product;
 import com.Model.Supplier;
 import com.Model.User;
@@ -37,6 +39,8 @@ public class HibernateConfig {
 		localSessionFactoryBuilder.addAnnotatedClass(Supplier.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Category.class);
 		localSessionFactoryBuilder.addAnnotatedClass(Product.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Orders.class);
+		localSessionFactoryBuilder.addAnnotatedClass(Cart.class);
 
 		// localSessionFactoryBuilder.scanPackages("com.Model");
 		localSessionFactoryBuilder.addProperties(getHibernateProperties());

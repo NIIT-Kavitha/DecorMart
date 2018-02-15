@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Component
 @Entity
@@ -32,7 +33,9 @@ public class Product {
 	private Supplier psupplier;
 	
 	@Transient
-	private String productImage;
+	private MultipartFile productImage;
+	
+	private String ImgName;
 
 	public Product() {
 		
@@ -80,11 +83,17 @@ public class Product {
 	public void setPsupplier(Supplier psupplier) {
 		this.psupplier = psupplier;
 	}
-	public String getProductImage() {
+	public MultipartFile getProductImage() {
 		return productImage;
 	}
-	public void setProductImage(String productImage) {
+	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
-	}	
+	}
+	public String getImgName() {
+		return ImgName;
+	}
+	public void setImgName(String imgName) {
+		ImgName = imgName;
+	}
 	
 }

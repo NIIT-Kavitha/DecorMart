@@ -45,4 +45,18 @@ public class ProductDaoImpl implements ProductDao {
 		
 	}
 
+	public void updateProduct(Product product) {
+		Session session=sessionFactory.getCurrentSession();
+		session.update(product);		
+	}
+
+	public void deleteProduct(int id) {
+		sessionFactory.getCurrentSession().createQuery("DELETE FROM Product WHERE pid = "+id).executeUpdate();
+		}
+
+	public Product getbyid(int id) {
+		Session session=sessionFactory.getCurrentSession();
+		return (Product) session.get(Product.class, id);
+	}
+
 }

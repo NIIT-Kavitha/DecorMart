@@ -29,6 +29,16 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.getAllProducts();
 	}
 
-	
+	public void updateProduct(Product product) {
+		
+		productDao.updateProduct(product);
+	}
 
+	public void deleteProduct(int id) {
+		productDao.deleteProduct(id);
+	}
+
+	public Product getbyid(int id) {
+		return productDao.getbyid(id);		
+	}
 }
